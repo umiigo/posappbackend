@@ -88,19 +88,19 @@ def customer_add_order(request):
 
 
 def customer_get_latest_order(request):
-    access_token = AccessToken.objects.get(token = request.GET.get("access_token"),
-        expires__gt = timezone.now())
-
-    customer = access_token.user.customer
-    order = OrderSerializer(Order.objects.filter(customer = customer).last()).data
-
-    return JsonResponse({"order": order})
-    # return JsonResponse()
+    # access_token = AccessToken.objects.get(token = request.GET.get("access_token"),
+    #     expires__gt = timezone.now())
+    #
+    # customer = access_token.user.customer
+    # order = OrderSerializer(Order.objects.filter(customer = customer).last()).data
+    #
+    # return JsonResponse({"order": order})
+    return JsonResponse()
 
 
 def restaurant_order_notification(request, last_request_time):
-    notification = Order.objects.filter(restaurant = request.user.restaurant,
-        created_at__gt = last_request_time).count()
-
-    return JsonResponse({"notification": notification})
-    # return JsonResponse()
+    # notification = Order.objects.filter(restaurant = request.user.restaurant,
+    #     created_at__gt = last_request_time).count()
+    #
+    # return JsonResponse({"notification": notification})
+    return JsonResponse()
