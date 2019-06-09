@@ -23,4 +23,4 @@ class MealSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Meal
-        fields = ("id","name", "short_description", "image", "price")
+        fields = ("id", "name", "short_description", "image", "price")
