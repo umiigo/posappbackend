@@ -66,7 +66,7 @@ def customer_add_order(request):
             order_total += Meal.objects.get(id = meal["meal_id"]).price * meal["quantity"]
 
         if len(order_details) > 0:
-            # Step 1 - Create an Order
+            
             order = Order.objects.create(
                 customer = customer,
                 restaurant_id = request.POST["restaurant_id"],
@@ -75,7 +75,7 @@ def customer_add_order(request):
                 address = request.POST["address"]
             )
 
-            # Step 2 - Create Order details
+
             for meal in order_details:
                 OrderDetails.objects.create(
                     order = order,
